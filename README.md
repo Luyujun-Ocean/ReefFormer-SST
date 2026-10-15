@@ -47,13 +47,15 @@ curve with two coefficients, fitted on validation forecasts only.
 - [Highlights](#highlights)
 - [Architecture](#architecture)
 - [Update Log](#update-log)
-- [Paper](#paper)
+- [Paper Access](#paper-access)
 - [Datasets](#datasets)
 - [Performance Comparison](#performance-comparison)
 - [Project Structure](#project-structure)
 - [Quick Start](#quick-start)
 - [Weights](#weights)
+- [Usage Notes](#usage-notes)
 - [Citation](#citation)
+- [License](#license)
 - [Contact](#contact)
 
 ## Highlights
@@ -82,6 +84,16 @@ curve with two coefficients, fitted on validation forecasts only.
 - `📦 Backbone-agnostic`: fusion operates on complete forecasts and needs no
   retraining of the constituent predictors (see `src/reefformer/fusion.py`).
 
+### Snapshot
+
+| Item | Value |
+| --- | --- |
+| Main task | Direct 1–30-day satellite SST prediction |
+| Study domains | 154 Hainan cells and 292 Great Barrier Reef cells |
+| Core method | Two context branches followed by persistence fusion |
+| Fusion coefficients | Four, fitted on validation forecasts |
+| Public reproduction data | Great Barrier Reef CoralTemp v3.1 |
+
 ## Update Log
 
 - `🔜 To appear`: paper link and final citation after publication.
@@ -89,7 +101,7 @@ curve with two coefficients, fitted on validation forecasts only.
   Barrier Reef data, and six archived checkpoints. Publication and submission
   status will be updated when confirmed.
 
-## Paper
+## Paper Access
 
 *Lead-Dependent Forecast Fusion for 1–30-Day Satellite Sea Surface Temperature
 Prediction in Reef-Adjacent Coastal Waters* (research manuscript). A public article link will be
@@ -216,6 +228,18 @@ Arrays are shaped `[forecast_origin, lead, spatial_unit]` in anomaly units. See
 
 - `🏷️ Release weights`: `checkpoints/gbr_coraltemp/iT_L{90,365}_seed{42,43,44}.pt`
 - Hainan weights are distributed with the Hainan datasets on request.
+
+## Usage Notes
+
+- [`docs/INSTALL.md`](docs/INSTALL.md) covers installation and environment setup.
+- [`docs/USER_GUIDE.md`](docs/USER_GUIDE.md) explains the fusion inputs and API.
+- [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) gives the archived
+  protocol and the results this package reproduces.
+- [`docs/DATA.md`](docs/DATA.md) records data provenance, attribution, and
+  how to request the Hainan artifacts.
+- This package supports the principal Great Barrier Reef ReefFormer
+  reproduction. The full set of paper baselines and exploratory experiments
+  is not bundled here.
 
 ## Citation
 
