@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this software or the released data, please cite the associated article and this repository."
+title: "ReefFormer: lead-dependent forecast fusion for 1-30-day satellite sea surface temperature prediction"
+type: software
+version: 1.1.0
+authors:
+  - name: "ReefFormer contributors"
+license: AGPL-3.0-only
+repository-code: "https://github.com/Luyujun0608/ReefFormer-SST"
+keywords:
+  - sea surface temperature
+  - forecast fusion
+  - lead time
+  - coral reefs
+  - deep learning
