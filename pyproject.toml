@@ -25,9 +25,9 @@ dependencies = [
 test = ["pytest>=8"]
 
 [project.urls]
-Homepage = "https://github.com/Luyujun0608/ReefFormer-SST"
-Repository = "https://github.com/Luyujun0608/ReefFormer-SST"
-Issues = "https://github.com/Luyujun0608/ReefFormer-SST/issues"
+Homepage = "https://github.com/Luyujun-Ocean/ReefFormer-SST"
+Repository = "https://github.com/Luyujun-Ocean/ReefFormer-SST"
+Issues = "https://github.com/Luyujun-Ocean/ReefFormer-SST/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]

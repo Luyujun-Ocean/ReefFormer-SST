@@ -20,7 +20,7 @@ authors:
     affiliation: "School of Marine Biology and Fisheries, Hainan University"
     orcid: "https://orcid.org/0009-0002-2205-5718"
 license: AGPL-3.0-only
-repository-code: "https://github.com/Luyujun0608/ReefFormer-SST"
+repository-code: "https://github.com/Luyujun-Ocean/ReefFormer-SST"
 keywords:
   - sea surface temperature
   - forecast fusion
