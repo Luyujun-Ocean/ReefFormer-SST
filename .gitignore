@@ -31,3 +31,15 @@ reference_results/hainan_*/
 # Large intermediate predictions are regenerated from checkpoints.
 *.npy
 !tests/fixtures/*.npy
+
+# Keep manuscript figures and rendered article documents out of this release.
+assets/
+figures/
+manuscript/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.svg
+*.pdf

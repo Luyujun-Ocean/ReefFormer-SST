@@ -19,6 +19,8 @@ SECRET_PATTERNS = {
 }
 # Construct these strings in pieces so the audit does not flag its own rules.
 RELEASE_PLACEHOLDERS = ("REPLACE-" + "WITH-ACCOUNT", "ReefFormer " + "study team")
+VISUAL_SUFFIXES = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg", ".pdf"}
+IMAGE_EMBED = re.compile(r"<img\b|!\[", re.IGNORECASE)
 
 
 def included_files() -> list[Path]:
@@ -52,14 +54,20 @@ def main() -> None:
     findings = []
     placeholders = []
     large_files = []
+    visual_files = []
+    documentation_images = []
     files = included_files()
     for path in files:
         relative = path.relative_to(ROOT).as_posix()
+        if path.suffix.lower() in VISUAL_SUFFIXES:
+            visual_files.append(relative)
         if path.stat().st_size >= 50 * 1024 * 1024:
             large_files.append({"path": relative, "bytes": path.stat().st_size})
         if path.suffix.lower() not in TEXT_SUFFIXES:
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
+        if path.suffix.lower() == ".md" and IMAGE_EMBED.search(text):
+            documentation_images.append(relative)
         for label, pattern in SECRET_PATTERNS.items():
             for match in pattern.finditer(text):
                 findings.append({"path": relative, "kind": label, "offset": match.start()})
@@ -77,11 +85,14 @@ def main() -> None:
         "secret_or_path_findings": findings,
         "release_placeholders": placeholders,
         "files_at_least_50_mb": large_files,
+        "visual_files": visual_files,
+        "documentation_with_images": documentation_images,
         "manifest_written": bool(args.write_manifest),
     }
     report["status"] = (
         "PASS"
-        if not findings and not large_files and (args.allow_release_placeholders or not placeholders)
+        if not findings and not large_files and not visual_files and not documentation_images
+        and (args.allow_release_placeholders or not placeholders)
         else "BLOCKED"
     )
     print(json.dumps(report, indent=2))
