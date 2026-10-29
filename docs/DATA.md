@@ -39,6 +39,9 @@ open a GitHub issue to arrange contact with the authors (see the README).
 Share your name, affiliation, and intended use through the agreed contact channel. Recipients are asked not to redistribute the files and to
 cite the associated article.
 
+The order in which the Hainan inventory, the 2026 evaluation protocol, and the
+2026 data were fixed is documented in [`FREEZE_TIMELINE.md`](FREEZE_TIMELINE.md).
+
 Place the received files at the paths below; `.gitignore` keeps them out of
 version control. Check them against these SHA-256 hashes before use.
 

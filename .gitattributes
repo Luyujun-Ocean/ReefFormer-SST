@@ -17,3 +17,4 @@ MANIFEST.sha256 text eol=lf
 # MANIFEST.sha256 and in the dataset protocol files match every checkout.
 data/** -text
 reference_results/** -text
+protocols/** -text
